@@ -1,7 +1,8 @@
-import { css } from 'otion'
-import React from 'react'
+/* eslint-disable react/prop-types */
+import { css } from 'juhuui';
+import React from 'react';
 
-const styles = {
+const classNames = css({
   position: 'absolute',
   cursor: 'pointer',
   width: '0',
@@ -10,13 +11,12 @@ const styles = {
   borderStyle: 'solid',
   borderTopWidth: '0',
   transform: 'translate(50%, 50%)',
-}
+});
 
 const Dot = ({ color, size, x, y }) => {
   return (
     <div
       className={`${css({
-        ...styles,
         borderRightWidth: `${size / 2}px`,
         borderBottomWidth: `${size / 2}px`,
         borderLeftWidth: `${size / 2}px`,
@@ -25,7 +25,7 @@ const Dot = ({ color, size, x, y }) => {
         borderBottomColor: color,
       })} ${classNames}`}
     />
-  )
-}
+  );
+};
 
-export default Dot
+export default Dot;

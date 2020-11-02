@@ -1,21 +1,27 @@
 /* eslint-disable no-param-reassign */
 /* global document */
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { setup } from 'juhuui';
-import App from './app/App';
-import impl from './impl';
-import Tree from './cases/Tree';
-import SierpinskiTriangle from './cases/SierpinskiTriangle';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { setup } from 'juhuui'
+import App from './app/App'
+import impl from './impl'
+import Tree from './cases/Tree'
+import SierpinskiTriangle from './cases/SierpinskiTriangle'
 
-const implementations = impl;
-const packageNames = Object.keys(implementations);
+const implementations = impl
+const packageNames = Object.keys(implementations)
 
-const createTestBlock = fn => {
+const createTestBlock = (fn) => {
   return packageNames.reduce((testSetups, packageName) => {
-    const { name, components, version } = implementations[packageName];
-    const { Component, getComponentProps, sampleCount, Provider, benchmarkType } = fn(components);
+    const { name, components, version } = implementations[packageName]
+    const {
+      Component,
+      getComponentProps,
+      sampleCount,
+      Provider,
+      benchmarkType,
+    } = fn(components)
 
     testSetups[packageName] = {
       Component,
@@ -25,37 +31,49 @@ const createTestBlock = fn => {
       benchmarkType,
       version,
       name,
-    };
-    return testSetups;
-  }, {});
-};
+    }
+    return testSetups
+  }, {})
+}
 
-setup(React.createElement);
+setup(React.createElement)
 
 const tests = {
-  'Mount deep tree': createTestBlock(components => ({
+  'Mount deep tree': createTestBlock((components) => ({
     benchmarkType: 'mount',
     Component: Tree,
-    getComponentProps: () => ({ breadth: 2, components, depth: 7, id: 0, wrap: 1 }),
+    getComponentProps: () => ({
+      breadth: 2,
+      components,
+      depth: 7,
+      id: 0,
+      wrap: 1,
+    }),
     Provider: components.Provider,
     sampleCount: 500,
   })),
-  'Mount wide tree': createTestBlock(components => ({
+  'Mount wide tree': createTestBlock((components) => ({
     benchmarkType: 'mount',
     Component: Tree,
-    getComponentProps: () => ({ breadth: 6, components, depth: 3, id: 0, wrap: 2 }),
+    getComponentProps: () => ({
+      breadth: 6,
+      components,
+      depth: 3,
+      id: 0,
+      wrap: 2,
+    }),
     Provider: components.Provider,
     sampleCount: 500,
   })),
-  'Update dynamic styles': createTestBlock(components => ({
+  'Update dynamic styles': createTestBlock((components) => ({
     benchmarkType: 'update',
     Component: SierpinskiTriangle,
     getComponentProps: ({ cycle }) => {
-      return { components, s: 200, renderCount: cycle, x: 0, y: 0 };
+      return { components, s: 200, renderCount: cycle, x: 0, y: 0 }
     },
     Provider: components.Provider,
     sampleCount: 1000,
   })),
-};
+}
 
-ReactDOM.render(<App tests={tests} />, document.querySelector('.root'));
+ReactDOM.render(<App tests={tests} />, document.querySelector('.root'))

@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from 'otion'
+import { css } from 'juhuui'
 
 export const styles = {
   alignItems: 'stretch',
@@ -17,10 +17,11 @@ export const styles = {
   minWidth: 0,
 }
 
-// const classNames = css(styles)
+// export const classNames = css(styles)
 
 const View = (props) => {
   return <div {...props} />
 }
 
 export default View
+//

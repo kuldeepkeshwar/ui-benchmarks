@@ -10,7 +10,7 @@ To run the benchmarks locally:
 
 ```
 yarn build
-open ./packages/benchmarks/dist/index.html
+open ./index.html
 ```
 
 Develop against these benchmarks:

@@ -1,4 +1,4 @@
-import { css } from 'otion'
+import { css } from 'juhuui'
 import React from 'react'
 import View, { styles } from './View'
 
@@ -16,11 +16,12 @@ export default function Box({
   fixed = false,
   layout = 'column',
   outer = false,
+  className,
   ...props
 }) {
   return (
     <div
-      className={css({
+      className={`${css({
         ...styles,
         backgroundColor: COLOR[color] || 'transparent',
         height: fixed ? '6px' : '',
@@ -28,7 +29,7 @@ export default function Box({
         alignSelf: 'flex-start',
         flexDirection: layout === 'column' ? 'column' : 'row',
         padding: outer ? '4px' : '0',
-      })}
+      })}`}
       {...props}
     />
   )
