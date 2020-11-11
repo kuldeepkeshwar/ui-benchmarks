@@ -36,7 +36,7 @@ const createTestBlock = (fn) => {
   }, {})
 }
 
-setup(React.createElement)
+setup(React.createElement, {defaultFun: false})
 
 const tests = {
   'Mount deep tree': createTestBlock((components) => ({

@@ -11,7 +11,7 @@ const COLOR = {
   5: '#E0245E',
 }
 
-const StyledBox = BoxJ.merge(View).with()
+// const StyledBox = BoxJ.merge(View).with()
 
 export default function Box({
   color,
@@ -21,7 +21,7 @@ export default function Box({
   ...props
 }) {
   return (
-    <StyledBox
+    <View
       css={{
         backgroundColor: COLOR[color] || 'transparent',
         height: fixed ? '6px' : '',

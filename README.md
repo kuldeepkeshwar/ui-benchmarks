@@ -4,7 +4,7 @@
 
 👀 This is a fork from Styled-Components. I have just added a few more libraries. All thanks goes to the people working on [Styled-Components](https://github.com/styled-components/styled-components) and [Necolas](https://github.com/necolas) 👀
 
-Try the [benchmarks app](https://necolas.github.io/react-native-web/benchmarks) online.
+Try the [benchmarks app](https://ui-benchmark.vercel.app) online. This is not the official link from Styled-Components.
 
 To run the benchmarks locally:
 

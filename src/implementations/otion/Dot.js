@@ -23,7 +23,7 @@ const Dot = ({ color, size, x, y }) => {
         marginLeft: `${x}px`,
         marginTop: `${y}px`,
         borderBottomColor: color,
-      })} ${classNames}`}
+      })}`}
     />
   )
 }
